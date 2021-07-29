@@ -55,7 +55,7 @@ function common::get_constraints_location() {
     if [[ -z ${AIRFLOW_CONSTRAINTS_LOCATION} ]]; then
         local constraints_base="https://raw.githubusercontent.com/${CONSTRAINTS_GITHUB_REPOSITORY}/${AIRFLOW_CONSTRAINTS_REFERENCE}"
         local python_version
-        python_version="$(python --version 2>/dev/stdout | cut -d " " -f 2 | cut -d "." -f 1-2)"
+        python_version="$(python3 --version 2>/dev/stdout | cut -d " " -f 2 | cut -d "." -f 1-2)"
         AIRFLOW_CONSTRAINTS_LOCATION="${constraints_base}/${AIRFLOW_CONSTRAINTS}-${python_version}.txt"
     fi
 }
